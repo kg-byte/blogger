@@ -1,7 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  it { should validate_presence_of(:author_name)}
-  it { should validate_presence_of(:body)}
-  it { should belong_to(:article) }
+  describe 'validations' do 
+    it { should validate_presence_of(:author_name)}
+    it { should validate_presence_of(:body)}
+  end
+
+  describe 'associations' do 
+    it { should belong_to(:article) }
+  end
 end
