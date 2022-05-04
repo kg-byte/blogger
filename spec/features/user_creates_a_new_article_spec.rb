@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'user creates a new article' do 
   describe 'they link from the articles index' do 
-  	describe 'they fill iin a title and body' do 
+  	describe 'they fill in a title and body' do 
   	  it 'creates a new article' do 
   	  	visit articles_path
   	  	click_link 'Create a New Article'
