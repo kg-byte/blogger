@@ -7,5 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 10.times do 
-  Article.create(title: Faker::Quote.singular_siegler, body: Faker::Quote.matz)
+  article = Article.create(title: Faker::Quote.singular_siegler, body: Faker::Quote.matz)
+  article.comments.create(author_name: Faker::JapaneseMedia::Conan.character, body: Faker::Quote.matz)
 end
