@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'user see all articles' do 
+describe 'user sees all articles' do 
   describe 'they visit /articles' do 
   	 let!(:article_1) {create(:article)}
   	 let!(:article_2) {create(:article)}
