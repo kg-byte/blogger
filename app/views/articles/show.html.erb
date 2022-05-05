@@ -1,9 +1,17 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.body %></p>
 <br>
-<%= link_to '<< Back to Articles List', articles_path %>
-<%= link_to 'Delete', article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %>
-<%= link_to 'Edit', edit_article_path(@article) %>
+<p style= "font-size: 12px">Tags: 
+	<% @article.tags.each do |tag| %>
+	<%= link_to tag.name.downcase, tag_path(tag)%>  
+		<% end %>
+</p>
+<p style= "font-size: 12px">Created <%= distance_of_time_in_words(@article.created_at, Time.now) %> ago</p>
 <br>
-<h3>Comments</h3>
+<p><strong><%= link_to '<< Back to Articles List', articles_path %>
+<%= link_to 'Delete', article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %>
+<%= link_to 'Edit', edit_article_path(@article) %></strong></p>
+<br>
+<h3>Comments (<%= @article.comments.count %>)</h3>
 <%= render partial: 'articles/comment', collection: @article.comments.reverse %>
+<%= render partial: 'comments/form' %>

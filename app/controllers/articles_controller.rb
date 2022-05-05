@@ -5,6 +5,8 @@ before_action :set_article, only: [:show, :destroy, :edit, :update]
   end
 
   def show 
+    @comment = Comment.new
+    @comment.article_id = @article.id
   end
 
   def new
@@ -41,7 +43,7 @@ before_action :set_article, only: [:show, :destroy, :edit, :update]
 
   private
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body, :tag_list)
   end
 
   def set_article
